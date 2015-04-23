@@ -16,14 +16,15 @@
   // Initial Setup
   // -------------
 
-  var XMLHttpRequest,  _;
+  var XMLHttpRequest, _, btoa;
   /* istanbul ignore else  */
   if (typeof exports !== 'undefined') {
       XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
       _ = require('underscore');
-      var btoa = require('btoa'); //jshint ignore:line
+      btoa = require('btoa'); //jshint ignore:line
   } else { 
-      _ = window._; 
+      _ = window._;
+      btoa = window.btoa;
   }
   
   //prefer native XMLHttpRequest always
