@@ -12,7 +12,7 @@
 
 (function() {
   'use strict';
-  
+
   // Initial Setup
   // -------------
 
@@ -22,11 +22,11 @@
       XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
       _ = require('underscore');
       btoa = require('btoa'); //jshint ignore:line
-  } else { 
+  } else {
       _ = window._;
       btoa = window.btoa;
   }
-  
+
   //prefer native XMLHttpRequest always
   /* istanbul ignore if  */
   if (typeof window !== 'undefined' && typeof window.XMLHttpRequest !== 'undefined'){
@@ -249,7 +249,7 @@
         if (branch === currentTree.branch && currentTree.sha) {
           return cb(null, currentTree.sha);
         }
-        
+
         that.getRef('heads/' + branch, function(err, sha) {
           currentTree.branch = branch;
           currentTree.sha = sha;
@@ -265,7 +265,7 @@
           if (err) {
             return cb(err);
           }
-          
+
           cb(null, res.object.sha);
         });
       };
@@ -314,7 +314,7 @@
           if (err) {
             return cb(err);
           }
-          
+
           cb(null, tags);
         });
       };
@@ -363,7 +363,7 @@
       // -------
 
       this.getBlob = function(sha, cb) {
-        _request("GET", repoPath + "/git/blobs/" + sha, null, cb, 'raw');
+        _request("GET", repoPath + "/git/blobs/" + sha, null, cb);
       };
 
       // For a given file path, get the corresponding sha (blob for files, tree for dirs)
