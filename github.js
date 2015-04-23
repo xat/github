@@ -816,6 +816,10 @@
     this.getGist = function(id) {
       return new Github.Gist({id: id});
     };
+
+    this.request = _request;
+
+    this.requestAllPages = _requestAllPages;
   };
 
   /* istanbul ignore else  */
