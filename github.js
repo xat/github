@@ -463,7 +463,7 @@
             "message": message,
             "author": {
               "name": options.user,
-              "email": userData.email
+              "email": options.email || userData.email
             },
             "parents": [
               parent
