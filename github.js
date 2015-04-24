@@ -419,6 +419,18 @@
         });
       };
 
+        this.postBase64Blob = function(content, cb) {
+            content = {
+                "content": content,
+                "encoding": "base64"
+            };
+
+            _request("POST", repoPath + "/git/blobs", content, function(err, res) {
+                if (err) return cb(err);
+                cb(null, res.sha);
+            });
+        };
+
       // Update an existing tree adding a new blob object getting a tree SHA back
       // -------
 
